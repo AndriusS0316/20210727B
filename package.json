@@ -2,8 +2,9 @@
   "name": "20210727b",
   "version": "1.0.0",
   "description": "Aprasymas apie mano nauja projekta",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Andrius",
