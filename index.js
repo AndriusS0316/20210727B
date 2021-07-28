@@ -1,4 +1,5 @@
 import * as fs from "fs/promises";
+
 try {
 let tekstas = await fs.readFile("./a.txt");
 console.log("" + tekstas);
