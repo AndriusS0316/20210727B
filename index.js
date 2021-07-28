@@ -29,7 +29,23 @@ let zmogus = {
 
 console.log(zmogus);
 labas(zmogus);
+labasBeLukstu(zmogus);
+
+labas({});
+
+labasBeLukstu();
 
 function labas ({vardas, pavarde}) {
     console.log("Labinuosi is labas su", vardas, pavarde);
+}
+
+function labasBeLukstu (zm) {
+    if (zm) {
+        let vardas = zm.vardas;
+        let pavarde = zm.pavarde;
+        console.log("Labinuosi is labas su", vardas, pavarde);
+    } else {
+        console.log("Nera su kuo sveikintis");
+    }
+    
 }
