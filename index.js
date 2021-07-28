@@ -1,7 +1,35 @@
-import { Puodukas } from "./puodukas.js";
+// import { Puodukas } from "./puodukas.js";
 
-console.log("Hello World");
+// console.log("Hello World !!!!!");
 
-let p = new Puodukas();
+// let p = new Puodukas();
 
-console.log(p);
+// console.log(p);
+
+
+
+let vardas = "Jonas";
+let pavarde = "Jonaitis";
+
+let zmogus = {
+    vardas,
+    pavarde,
+    gimimoMetai: 1999,
+    pasisveikinimas: function(kalba) {
+        if (kalba === "en") {
+            console.log("Hello", this.vardas, this.pavarde);
+        } else {
+            console.log("Labas", this.vardas, this.pavarde);
+        }
+    }
+};
+// console.log(zmogus);
+// zmogus.pasisveikinimas("en");
+// zmogus.pasisveikinimas("jp");
+
+console.log(zmogus);
+labas(zmogus);
+
+function labas ({vardas, pavarde}) {
+    console.log("Labinuosi is labas su", vardas, pavarde);
+}
