@@ -1,11 +1,44 @@
 import * as fs from "fs/promises";
 
-try {
-let tekstas = await fs.readFile("./a.txt");
-console.log("" + tekstas);
-} catch (err) {
-console.log("klaida", err);
+async function suma (a, b) { //async is karto grazina promisa
+    return a + b;
 }
+
+function sumaPromise(a, b) {
+    return new Promise((resolve, reject) => {
+        resolve(suma(a, b));
+    });
+}
+
+async function sumaAsync (a, b) {
+    return a + b;
+}
+
+console.log(suma(1, 2));
+console.log(sumaPromise(1, 2));
+console.log(sumaAsync(1, 2));
+
+
+
+
+let reiksmesPromisas = suma(1, 2);
+
+reiksmesPromisas.then(reiksme => {
+    let rezultatas = reiksme + 4;
+    console.log(rezultatas);
+    console.log(reiksme + 4);
+});
+
+
+
+
+
+// try {
+// let tekstas = await fs.readFile("./a.txt");
+// console.log("" + tekstas);
+// } catch (err) {
+// console.log("klaida", err);
+// }
 
 
 
@@ -78,3 +111,6 @@ console.log("klaida", err);
 //     }
     
 // }
+
+
+
