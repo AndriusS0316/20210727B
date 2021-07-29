@@ -7,7 +7,7 @@ async function suma (a, b) {
     return a + b;
 }
 
-let sumosPromisas = suma(4, -5);
+let sumosPromisas = suma(4, 5);
 console.log(sumosPromisas);
 
 
