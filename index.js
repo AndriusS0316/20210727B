@@ -1,33 +1,58 @@
 import * as fs from "fs/promises";
 
 async function suma (a, b) { //async is karto grazina promisa
+    
     return a + b;
 }
 
-function sumaPromise(a, b) {
-    return new Promise((resolve, reject) => {
-        resolve(suma(a, b));
+// asinchronines funkcijos visada grazina promisa
+let rezultatas = await suma(1, 2) + await suma(4, 5);
+console.log(rezultatas + 4);
+console.log("Labas");
+// asinchronines funkcijos visada grazina promisa
+suma(1, 2).then( v1 => {
+    return new Promise((resolve) => {
+        suma(4, 5).then (v2 => {
+            resolve (v1 + v2);
+        });
     });
-}
+})
+.then(val => {
+    rezultatas = val;
+    console.log(rezultatas + 4);
+    console.log("Labas");
+})
+// function sumaPromise(a, b) {
+//     return new Promise((resolve, reject) => {
+//         resolve(suma(a, b));
+//     });
+// }
 
-async function sumaAsync (a, b) {
-    return a + b;
-}
+// async function sumaAsync (a, b) {
+//     return a + b;
+// }
 
-console.log(suma(1, 2));
-console.log(sumaPromise(1, 2));
-console.log(sumaAsync(1, 2));
-
-
+// console.log(suma(1, 2));
+// console.log(sumaPromise(1, 2));
+// console.log(sumaAsync(1, 2));
 
 
-let reiksmesPromisas = suma(1, 2);
 
-reiksmesPromisas.then(reiksme => {
-    let rezultatas = reiksme + 4;
-    console.log(rezultatas);
-    console.log(reiksme + 4);
-});
+
+// suma(1, 2).then(reiksme => {
+//     rezultatas = reiksme;
+//     console.log(rezultatas + 4);
+// });
+
+
+
+// let reiksmesPromisas = suma(1, 2);
+
+// reiksmesPromisas.then(reiksme => {
+//     rezultatas = reiksme + 4;
+
+//     console.log(rezultatas);
+// });
 
 
 
