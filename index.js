@@ -1,3 +1,12 @@
+/*
+sukurti 2 JSON failus, kuriuose butu string'u masyvai
+perskaityti abu failus, suparsinti, apjungti i viena masyva
+surusiuoti masyva pagal string'o ilgi
+atspausdinti masyva
+
+*/
+
+
 import * as fs from "fs/promises";
 
 async function suma (a, b) {
