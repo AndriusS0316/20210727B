@@ -9,8 +9,10 @@ atspausdinti masyvą
 
 */
 
-let data1 = "";
-let data2 = "";
+let y = ["vienas", "du", "trys"];
+let data1 
+let data2 
+let data3 
 
 try {
     data1 += await fs.readFile("pirmas.json");
@@ -19,5 +21,21 @@ try {
 } catch (err) {
     console.log("Klaida bandant perskaityti failo turini. Siuo metu, failas laikinai yra nepasiekiamas arba jis buvo perkeltas i kita vieta. Dar karta patikrinkite faila. ", err);
 }
-console.log(data1 + data2);
+
+data3 = data1 + data2;
+
+for (let i = 0; i < data1.length; i++) {
+    // if (typeof data1.i === "string") {
+        // data3 = data1.i;
+        // console.log(data3);
+    // } else 
+    //console.log(data1.i);
+}
+
+let m = data3.split(" ");
+m.sort((e1, e2) => e1.length - e2.length);
+console.log(m);
+
+
+//console.log(data1 + data2);
 console.log("pabaiga");
