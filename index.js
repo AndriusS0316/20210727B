@@ -9,6 +9,23 @@ atspausdinti masyvą
 
 import * as fs from "fs/promises";
 
+let duomenys = "";
+
+try {
+    duomenys+= await fs.readFile("a.txt");
+    duomenys+= await fs.readFile("b.txt");
+    duomenys+= await fs.readFile("c.txt");
+} catch (err) {
+    console.log("Klaida skaitant is failo: ", err);
+}
+console.log(duomenys);
+console.log("pabaiga");
+
+
+
+
+
+
 async function suma (a, b) {
     if (a < 0 || b < 0) {
         throw "as sudedu tik teigiamus skaicius";
