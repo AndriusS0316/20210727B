@@ -17,7 +17,7 @@ let server = new Server((socket) => {
     socket.on("data", async (data) => {
         allData += data;
         let lines = allData.split("\r\n");
-        if (lines.findIndex(e => e === "") !== -1) {
+        if (lines.findIndex((e) => e === "") !== -1) {
             let fileName = lines[0].split(" ")[1];
             let realFile = path.join(WEB_DIR, fileName);
             console.log(realFile);
