@@ -22,4 +22,13 @@ let server = new Server((socket) => {
           resp = "HTTP/1.1 200 Ok\r\n\r\n";
           const stats = await fs.stat(realFile);
           let html;
-          
+          if (stats.isDirectory()) {
+            if (!fileName.endsWith("/")) {
+              fileName += "/";
+            }
+            const filesInDir = await fs.readdir(realFile);
+            html = "<html><body>";
+            if (fileName !== "/") {
+              html += '<a href="' + fileName + '../">..</a><br>';
+            }
+            
