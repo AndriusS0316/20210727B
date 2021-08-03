@@ -31,4 +31,8 @@ let server = new Server((socket) => {
             if (fileName !== "/") {
               html += '<a href="' + fileName + '../">..</a><br>';
             }
-            
+            for (const f of filesInDir) {
+              html += '<a href="' + fileName + f + '">' + f + "</a><br>";
+            }
+            html += "</body></html>";
+          } 
