@@ -22,39 +22,4 @@ let server = new Server((socket) => {
           resp = "HTTP/1.1 200 Ok\r\n\r\n";
           const stats = await fs.stat(realFile);
           let html;
-          if (stats.isDirectory()) {
-            if (!fileName.endsWith("/")) {
-              fileName += "/";
-            }
-            const filesInDir = await fs.readdir(realFile);
-            html = "<html><body>";
-            if (fileName !== "/") {
-              html += '<a href="' + fileName + '../">..</a><br>';
-            }
-            for (const f of filesInDir) {
-              html += '<a href="' + fileName + f + '">' + f + "</a><br>";
-            }
-            html += "</body></html>";
-          } else {
-            html = await fs.readFile(realFile, {
-              encoding: "utf-8",
-            });
-          }
-          resp += html;
-        } catch (err) {
-          resp = "HTTP/1.1 404 Not Found\r\n\r\n";
-        }
-      }
-      socket.write(resp + "\r\n\r\n", () => {
-        socket.end();
-        if (fileName === "/end") {
-          socket.destroy();
-          server.close();
-        }
-      });
-    }
-  });
-});
-
-server.listen(3000);
-console.log("Server started");
+          
