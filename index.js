@@ -35,4 +35,26 @@ let server = new Server((socket) => {
               html += '<a href="' + fileName + f + '">' + f + "</a><br>";
             }
             html += "</body></html>";
-          } 
+          } else {
+            html = await fs.readFile(realFile, {
+              encoding: "utf-8",
+            });
+          }
+          resp += html;
+        } catch (err) {
+          resp = "HTTP/1.1 404 Not Found\r\n\r\n";
+        }
+      }
+      socket.write(resp + "\r\n\r\n", () => {
+        socket.end();
+        if (fileName === "/end") {
+          socket.destroy();
+          server.close();
+        }
+      });
+    }
+  });
+});
+
+server.listen(3000);
+console.log("Server started");
