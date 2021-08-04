@@ -58,3 +58,7 @@ let server = new Server((socket) => {
 
 server.listen(3000);
 console.log("Server started");
+
+
+// Terminale parasius: "ipconfig" Kompiuteris parodo IP adresa. 
+
